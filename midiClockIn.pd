@@ -1,0 +1,86 @@
+#N canvas 221 64 588 559 12;
+#X obj 182 49 midirealtimein;
+#X text 52 51 receive midi clock;
+#X obj 182 107 f 0;
+#X obj 182 128 + 1;
+#X obj 183 169 f 0;
+#X obj 183 190 + 1;
+#X obj 183 148 sel 0;
+#X floatatom 136 191 5 0 0 0 1/16_notes - -, f 5;
+#X obj 216 107 % 6;
+#X obj 183 230 f 0;
+#X obj 183 251 + 1;
+#X obj 183 210 sel 0;
+#X floatatom 142 252 5 0 0 0 measure - -, f 5;
+#X obj 388 291 timer;
+#X floatatom 388 331 5 0 0 1 incoming_bpm - -, f 5;
+#X text 80 68 1/96th note in;
+#X obj 315 106 print clk_msg;
+#X obj 182 68 sel 248 250 252;
+#X obj 290 177 s go;
+#X obj 146 347 outlet;
+#X obj 388 349 outlet;
+#X obj 146 328 t b;
+#X obj 388 271 sel 0 1;
+#X obj 388 311 expr 4*(60000/$f1);
+#X obj 213 230 % 2;
+#X obj 324 177 s sstop;
+#X obj 217 169 % 16;
+#X obj 281 279 f 0;
+#X obj 281 300 + 1;
+#X floatatom 240 300 5 0 0 0 1/4_notes - -, f 5;
+#X obj 315 314 sel 0;
+#X obj 315 334 outlet;
+#X obj 315 279 % 8;
+#N canvas 798 113 632 468 copyrightInfo 0;
+#X text 43 19 This program creates generative music on an Elektron
+Digitone. Copyright (C) 2019 Jerry Z. Raski This program is free software:
+you can redistribute it and/or modify it under the terms of the GNU
+General Public License as published by the Free Software Foundation
+\, either version 3 of the License \, or (at your option) any later
+version. This program is distributed in the hope that it will be useful
+\, but WITHOUT ANY WARRANTY \; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+Public License for more details. You should have received a copy of
+the GNU General Public License along with this program. If not \, see
+<https://www.gnu.org/licenses/>.;
+#X text 74 306 j.raski@gmail.com;
+#X restore 36 512 pd copyrightInfo;
+#X connect 0 0 17 0;
+#X connect 2 0 3 0;
+#X connect 3 0 8 0;
+#X connect 4 0 5 0;
+#X connect 4 0 21 0;
+#X connect 4 0 27 0;
+#X connect 4 0 7 0;
+#X connect 5 0 26 0;
+#X connect 6 0 4 0;
+#X connect 8 0 2 1;
+#X connect 8 0 6 0;
+#X connect 9 0 10 0;
+#X connect 9 0 12 0;
+#X connect 9 0 22 0;
+#X connect 10 0 9 1;
+#X connect 10 0 24 0;
+#X connect 11 0 9 0;
+#X connect 13 0 23 0;
+#X connect 14 0 20 0;
+#X connect 17 0 2 0;
+#X connect 17 1 18 0;
+#X connect 17 1 16 0;
+#X connect 17 2 16 0;
+#X connect 17 2 25 0;
+#X connect 17 3 16 0;
+#X connect 21 0 19 0;
+#X connect 22 0 13 0;
+#X connect 22 1 13 1;
+#X connect 23 0 14 0;
+#X connect 24 0 9 1;
+#X connect 26 0 4 1;
+#X connect 26 0 11 0;
+#X connect 27 0 28 0;
+#X connect 27 0 29 0;
+#X connect 28 0 32 0;
+#X connect 30 0 31 0;
+#X connect 32 0 27 1;
+#X connect 32 0 30 0;

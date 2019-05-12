@@ -1,0 +1,207 @@
+#N canvas 579 72 849 745 12;
+#X obj 78 75 quantizer aa;
+#X obj 451 230 quantizer~ aa;
+#X obj 433 251 f;
+#X obj 364 179 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 433 291 noteout 1;
+#X obj 462 332 noteout 1;
+#X obj 462 251 f;
+#X obj 491 372 noteout 1;
+#X obj 491 251 f;
+#X obj 521 413 noteout 1;
+#X obj 521 251 f;
+#X obj 318 374 random 4;
+#X obj 318 356 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 318 393 s aa-invert;
+#X obj 410 374 random 4;
+#X obj 410 355 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 410 393 s aa-voicing;
+#X obj 364 159 euclidRhythm;
+#X obj 403 51 bng 30 250 50 0 go empty Go -22 7 0 10 -204786 -1 -1
+;
+#X obj 403 84 tgl 15 0 empty stop empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 364 103 midiClockIn;
+#X obj 364 139 spigot;
+#X floatatom 438 122 5 0 0 0 - - -, f 5;
+#X obj 438 139 s bpm;
+#X text 700 681 A58 delightpad;
+#X text 714 668 A20 choirpad;
+#X obj 433 270 makenote 80 2000;
+#X obj 462 312 makenote 80 2000;
+#X obj 491 353 makenote 80 2000;
+#X obj 521 392 makenote 80 2000;
+#X floatatom 640 222 5 0 0 1 duration_in_ms - -, f 5;
+#X text 714 693 A62 softkeys;
+#X obj 365 528 - 2;
+#X obj 365 548 * 12;
+#X floatatom 365 593 5 0 0 0 - - -, f 5;
+#X obj 403 548 t b f;
+#X obj 365 573 +;
+#X obj 366 508 r aa-transpose;
+#X obj 471 508 r aa-root;
+#X obj 347 631 makenote 80 2000;
+#X obj 347 611 f;
+#X obj 347 652 noteout 2;
+#X floatatom 456 613 8 0 0 0 - - -, f 8;
+#X obj 333 548 t b;
+#X obj 333 567 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 471 528 + 48;
+#X obj 456 573 loadbang;
+#X msg 456 593 900000;
+#X text 707 599 A158 Twink SM;
+#X text 292 508 drone note;
+#X text 508 528 one octive lower;
+#X text 118 375 random inversion and voicing;
+#X text 693 611 C20 Shimmer pad;
+#X text 707 634 D18 Starbells;
+#X text 686 646 D33 Windy desert;
+#X text 21 490 @85bpm and 1/10th arp notes;
+#X text 126 515 4notes = 1s;
+#X text 119 503 1note = 250ms;
+#X text 647 235 avg 4 notes \, min 1 note;
+#X text 678 581 D06 Cosmic puddle;
+#N canvas 896 109 799 535 randScales 0;
+#X floatatom 97 143 5 0 0 1 Scale_tones_bet_0-11 - -, f 5;
+#X obj 97 123 array random distrib;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array distrib 12 float 3;
+#A 0 0 0 1 0 1 0 0 1 0 1 0 0;
+#X coords 0 1 12 0 200 140 1 0 0;
+#X restore 311 43 graph;
+#X msg 314 204 \; distrib const 0;
+#X obj 313 255 loadbang;
+#X text 450 440 Negative major;
+#X obj 97 103 inlet;
+#X obj 97 162 outlet;
+#X text 448 320 Major scale TTSTTTS;
+#X text 448 381 Minor scale TSTTSTT;
+#X text 427 210 distrib = 0 for notes not in scale;
+#X msg 312 338 \; distrib 1 0 1 0 1 1 0 1 0 1 0 1 1 0 1 0 1 1 0 1 0
+1 0 1 1 0 1 0 0 0 0 0 0 0 0 0 \;;
+#X msg 312 398 \; distrib 1 0 1 1 0 1 0 1 1 0 1 0 1 1 0 1 1 0 1 0 1
+1 0 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 \;;
+#X msg 312 459 \; distrib 1 1 0 1 0 1 1 0 1 0 1 0 1 1 0 1 0 1 1 0 1
+0 1 0 1 1 0 1 0 0 0 0 0 0 0 0 \;;
+#X msg 313 275 \; distrib 1 0 1 0 1 0 0 1 0 1 0 0 1 0 1 0 1 0 0 1 0
+1 0 0 1 0 1 0 1 0 0 1 0 1 0 0 \;;
+#X text 147 158 one octive;
+#X text 447 257 Major pentatonic T T 3S T 3S;
+#X obj 292 338 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 293 398 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 293 459 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 292 275 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 320 92 Doesn't always display correctly;
+#X text 321 105 However \, plays correctly;
+#X text 71 178 Major pentatonic 0 2 4 7 9;
+#X text 71 191 Major scale 0 2 4 5 7 9 11;
+#N canvas 798 113 632 468 copyrightInfo 0;
+#X text 43 19 This program creates generative music on an Elektron
+Digitone. Copyright (C) 2019 Jerry Z. Raski This program is free software:
+you can redistribute it and/or modify it under the terms of the GNU
+General Public License as published by the Free Software Foundation
+\, either version 3 of the License \, or (at your option) any later
+version. This program is distributed in the hope that it will be useful
+\, but WITHOUT ANY WARRANTY \; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+Public License for more details. You should have received a copy of
+the GNU General Public License along with this program. If not \, see
+<https://www.gnu.org/licenses/>.;
+#X text 74 306 j.raski@gmail.com;
+#X restore 105 494 pd copyrightInfo;
+#X connect 0 0 7 0;
+#X connect 1 0 0 0;
+#X connect 4 0 14 0;
+#X connect 6 0 1 0;
+#X connect 17 0 11 0;
+#X connect 18 0 12 0;
+#X connect 19 0 13 0;
+#X connect 20 0 14 0;
+#X restore 451 210 pd randScales;
+#X obj 562 144 expDist d;
+#X obj 10 677 loadbang;
+#N canvas 798 113 632 468 copyrightInfo 0;
+#X text 43 19 This program creates generative music on an Elektron
+Digitone. Copyright (C) 2019 Jerry Z. Raski This program is free software:
+you can redistribute it and/or modify it under the terms of the GNU
+General Public License as published by the Free Software Foundation
+\, either version 3 of the License \, or (at your option) any later
+version. This program is distributed in the hope that it will be useful
+\, but WITHOUT ANY WARRANTY \; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+Public License for more details. You should have received a copy of
+the GNU General Public License along with this program. If not \, see
+<https://www.gnu.org/licenses/>.;
+#X text 74 306 j.raski@gmail.com;
+#X restore 74 717 pd copyrightInfo;
+#X msg 10 697 quantizerTester Copyright (C) 2019 Jerry Z Raski;
+#X obj 10 717 print -n;
+#X connect 1 0 2 1;
+#X connect 1 1 6 1;
+#X connect 1 2 8 1;
+#X connect 1 3 10 1;
+#X connect 2 0 26 0;
+#X connect 3 0 2 0;
+#X connect 3 0 6 0;
+#X connect 3 0 8 0;
+#X connect 3 0 10 0;
+#X connect 3 0 15 0;
+#X connect 3 0 12 0;
+#X connect 3 0 60 0;
+#X connect 6 0 27 0;
+#X connect 8 0 28 0;
+#X connect 10 0 29 0;
+#X connect 11 0 13 0;
+#X connect 12 0 11 0;
+#X connect 14 0 16 0;
+#X connect 15 0 14 0;
+#X connect 17 0 3 0;
+#X connect 18 0 19 0;
+#X connect 19 0 21 1;
+#X connect 20 0 21 0;
+#X connect 20 2 22 0;
+#X connect 21 0 17 0;
+#X connect 22 0 23 0;
+#X connect 26 0 4 0;
+#X connect 26 1 4 1;
+#X connect 27 0 5 0;
+#X connect 27 1 5 1;
+#X connect 28 0 7 0;
+#X connect 28 1 7 1;
+#X connect 29 0 9 0;
+#X connect 29 1 9 1;
+#X connect 30 0 26 2;
+#X connect 30 0 27 2;
+#X connect 30 0 28 2;
+#X connect 30 0 29 2;
+#X connect 32 0 33 0;
+#X connect 33 0 36 0;
+#X connect 34 0 43 0;
+#X connect 34 0 40 1;
+#X connect 35 0 36 0;
+#X connect 35 1 36 1;
+#X connect 36 0 34 0;
+#X connect 37 0 32 0;
+#X connect 38 0 45 0;
+#X connect 39 0 41 0;
+#X connect 39 1 41 1;
+#X connect 40 0 39 0;
+#X connect 42 0 39 2;
+#X connect 43 0 44 0;
+#X connect 44 0 42 0;
+#X connect 44 0 40 0;
+#X connect 45 0 35 0;
+#X connect 46 0 47 0;
+#X connect 47 0 42 0;
+#X connect 60 0 1 0;
+#X connect 61 1 30 0;
+#X connect 62 0 64 0;
+#X connect 64 0 65 0;
