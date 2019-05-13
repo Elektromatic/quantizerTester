@@ -38,3 +38,6 @@ quantizer:    This patch models the Instruo by creating four note chords with va
 
 Contributing: Any contributions to this project are welcome.
 
+Acknowledgements: I'd like to thank Acreil for sharing his Pure Data patches. Namely; 
+                  pois, rseq, and euclid, to create Euclidian rhythm patches used here.
+
